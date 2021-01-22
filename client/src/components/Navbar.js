@@ -30,7 +30,11 @@ function Navigation() {
     <React.Fragment>
     <Router>
       <Navbar
-        className="navbar-horizontal navbar-dark bg-1C212D"
+      // navbar-dark 
+        className="navbar-horizontal"
+        style={{ 
+          backgroundColor: '#1C212D'
+        }}
         expand="lg"
       >
         <Container>
@@ -40,14 +44,22 @@ function Navigation() {
             <Link to="/home" style={styles.navLink}></Link>
           </NavbarBrand>
           <Nav className="ml-lg-auto">
-            <NavLink><Link to="/about">About</Link></NavLink>
-            <NavLink><Link to="/members">Members</Link></NavLink>
-            <NavLink><Link to="/projects">Projects</Link></NavLink>
-            <NavLink><Link to="/events">Events</Link></NavLink>
-            <NavLink><Link to="/contact">Contact</Link></NavLink>
+            <NavLink><Link to="/about" style={{ color: '#ff9988' }}>About</Link></NavLink>
+            <NavLink><Link to="/members" style={{ color: '#ff9988' }}>Members</Link></NavLink>
+            <NavLink><Link to="/projects" style={{ color: '#ff9988' }}>Projects</Link></NavLink>
+            <NavLink><Link to="/events" style={{ color: '#ff9988' }}>Events</Link></NavLink>
+            <NavLink><Link to="/contact" style={{ color: '#ff9988' }}>Contact</Link></NavLink>
           </Nav>
           <Link to="/login">
-            <Button color="FF9988" type="button" className="ml-3">Login</Button>
+            <Button style={{ 
+              backgroundColor: '#ff9988', 
+              color: '#1C212D', 
+              borderColor:'#1C212D'
+            }} 
+              type="button" 
+              className="ml-3"
+              >
+                Login</Button>
           </Link>
         </Container>
       </Navbar>
@@ -78,7 +90,7 @@ function Navigation() {
 
 const styles = {
     navLink: {
-      color: '#525f7f',
+      color: '#1C212D',
       fontSize: 16
   }
     // img:{
