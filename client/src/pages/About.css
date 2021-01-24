@@ -1,0 +1,28 @@
+.dormant-tab {
+    background-color: #1C212D;
+    color: #B2BDC8;
+}
+
+.active-tab {
+    color: #FF9988;
+    background-color: #1C212D;
+    border-bottom: 1px solid;
+    padding-bottom: 3px;
+}
+
+.para-card {
+    color: #B2BDC8;
+    background-color: #1C212D; 
+    border: #1C212D !important;
+}
+
+.para-text {
+    color: #B2BDC8;
+    background-color: #1C212D;
+    font-size: large;
+    border: #1C212D !important;
+    border-radius: 0rem;
+    width: 80%;
+
+    /* padding: 0px 50px; */
+}
