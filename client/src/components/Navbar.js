@@ -24,6 +24,7 @@ import Events from '../pages/Events';
 import Contact from '../pages/Contact';
 import Projects from '../pages/Projects';
 import Login from '../pages/Login';
+import SignUp from '../pages/SignUp';
 
 function Navigation() {
   return (
@@ -81,6 +82,9 @@ function Navigation() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/signup">
+            <SignUp />
           </Route>
         </Switch>
       </Router>
