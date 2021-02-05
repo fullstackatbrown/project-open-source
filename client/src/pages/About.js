@@ -25,61 +25,65 @@ class About extends React.Component {
   render() {
     return (
       <>
-        <div className="nav-wrapper">
-          <Nav
-            className="nav-fill flex-column flex-md-row"
-            id="tabs-icons-text"
-            pills
-            role="tablist"
-          >
-            <NavItem>
-              <NavLink
-                aria-selected={this.state.tabs === 1}
-                className={classnames("mb-sm-3 mb-md-0", {
-                  active: this.state.tabs === 1
-                })}
-                style={this.state.tabs === 1 ? activeStyle : dormantStyle}
-                onClick={e => this.toggleAbout(e, "tabs", 1)}
-                href="#pablo"
-                role="tab"
-              >
-                {/* <i className="ni ni-cloud-upload-96 mr-2" /> */}
-                Mission Statement
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                aria-selected={this.state.tabs === 2}
-                className={classnames("mb-sm-3 mb-md-0", {
-                  active: this.state.tabs === 2
-                })}
-                style={this.state.tabs === 2 ? activeStyle : dormantStyle}
-                onClick={e => this.toggleAbout(e, "tabs", 2)}
-                href="#pablo"
-                role="tab"
-              >
-                {/* <i className="ni ni-bell-55 mr-2" /> */}
-                Description of Membership
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                aria-selected={this.state.tabs === 3}
-                className={classnames("mb-sm-3 mb-md-0", {
-                  active: this.state.tabs === 3
-                })}
-                style={this.state.tabs === 3 ? activeStyle : dormantStyle}
-                onClick={e => this.toggleAbout(e, "tabs", 3)}
-                href="#pablo"
-                role="tab"
-              >
-                {/* <i className="ni ni-calendar-grid-58 mr-2" /> */}
-                Finances and Support
-              </NavLink>
-            </NavItem>
-          </Nav>
+      <div className = "page-wrapper">
+        <div>
+            <h1 className="header">About Us</h1>
         </div>
-        <Card className="para-card ml-5 mr-5 center">
+          <div className="nav-wrapper">
+              <Nav
+              className="nav-fill flex-column flex-md-row"
+              id="tabs-icons-text"
+              pills
+              role="tablist"
+            >
+              <NavItem className="tabs">
+                <NavLink
+                  aria-selected={this.state.tabs === 1}
+                  className={classnames("mb-sm-3 mb-md-0", {
+                    active: this.state.tabs === 1
+                  })}
+                  style={this.state.tabs === 1 ? activeStyle : dormantStyle}
+                  onClick={e => this.toggleAbout(e, "tabs", 1)}
+                  href="#pablo"
+                  role="tab"
+                >
+                  {/* <i className="ni ni-cloud-upload-96 mr-2" /> */}
+                  Mission Statement
+                </NavLink>
+              </NavItem>
+              <NavItem className="tabs">
+                <NavLink
+                  aria-selected={this.state.tabs === 2}
+                  className={classnames("mb-sm-3 mb-md-0", {
+                    active: this.state.tabs === 2
+                  })}
+                  style={this.state.tabs === 2 ? activeStyle : dormantStyle}
+                  onClick={e => this.toggleAbout(e, "tabs", 2)}
+                  href="#pablo"
+                  role="tab"
+                >
+                  {/* <i className="ni ni-bell-55 mr-2" /> */}
+                  Description of Membership
+                </NavLink>
+              </NavItem>
+              <NavItem className="tabs">
+                <NavLink
+                  aria-selected={this.state.tabs === 3}
+                  className={classnames("mb-sm-3 mb-md-0", {
+                    active: this.state.tabs === 3
+                  })}
+                  style={this.state.tabs === 3 ? activeStyle : dormantStyle}
+                  onClick={e => this.toggleAbout(e, "tabs", 3)}
+                  href="#pablo"
+                  role="tab"
+                >
+                  {/* <i className="ni ni-calendar-grid-58 mr-2" /> */}
+                  Finances and Support
+                </NavLink>
+              </NavItem>
+            </Nav>
+          </div>
+          <Card className="para-card ml-5 mr-5 center">
           <CardBody className="para-card">
             <TabContent className="para-text" activeTab={"tabs" + this.state.tabs}>
               <TabPane tabId="tabs1">
@@ -132,6 +136,7 @@ class About extends React.Component {
             </TabContent>
           </CardBody>
         </Card>
+        </div>     
       </>
     );
   }

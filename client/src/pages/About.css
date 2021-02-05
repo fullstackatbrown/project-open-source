@@ -1,3 +1,7 @@
+.header{
+    font-size: 70px;
+    color:#FF9988;
+}
 .dormant-tab {
     background-color: #1C212D;
     color: #B2BDC8;
@@ -25,4 +29,8 @@
     width: 80%;
 
     /* padding: 0px 50px; */
+}
+
+.page-wrapper {
+    padding: 0px 70px;
 }

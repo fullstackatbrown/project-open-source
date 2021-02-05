@@ -9,36 +9,44 @@ import { Button,
 import {Link} from "react-router-dom";
 
 import Login from './Login';
+import "./SignUp.css"
 
 const SignUp = (props) => {
   return (
     <>
     <div id = "form-wrapper">
         <div>
-          <h1>SIGN UP</h1>
+          <h1 className="header">Sign Up</h1>
         </div>
         <Form>
           <FormGroup>
-            <Label for="exampleName">Full Name</Label>
-            <Input type="name" name="name" id="exampleName" placeholder="Full Name" />
+            <Label className = "text-label" for="exampleName">Full Name</Label>
+            <Input type="name" name="name" id="exampleName" placeholder="Full Name"/>
           </FormGroup>
           <FormGroup>
-            <Label for="exampleEmail">Email</Label>
+            <Label className = "text-label" for="exampleEmail">Email</Label>
             <Input type="email" name="email" id="exampleEmail" placeholder="@brown.edu" />
           </FormGroup>
           <FormGroup>
-            <Label for="examplePassword">Password</Label>
-            <Input type="password" name="password" id="examplePassword" placeholder="enter password" />
+            <Label className = "text-label" for="examplePassword">Password</Label>
+            <Input type="password" name="password" id="examplePassword" placeholder="Enter Password" />
           </FormGroup>
           <FormGroup>
-            <Label for="exampleConfirmPassword">Confirm Password</Label>
-            <Input type="confirmPassword" name="confirmPassword" id="exampleConfirmPassword" placeholder="confirm password" />
+            <Label className = "text-label" for="exampleConfirmPassword">Confirm Password</Label>
+            <Input type="confirmPassword" name="confirmPassword" id="exampleConfirmPassword" placeholder="Confirm Password" />
           </FormGroup>
-          <Button>Submit</Button>
-          <FormGroup>
+        
+          <FormGroup className = "text-label" id = "redirect">
           Have an account? 
-          <Link to="/login"> Login</Link>
+          <Link id = "login-link" to="/login"> Log in</Link>
           </FormGroup>
+          <Button style={{ 
+              backgroundColor: '#ff9988', 
+              color: '#1C212D', 
+              borderColor:'#1C212D',
+              width: '150px',
+              fontSize: '20px'
+            }} className="button">Submit</Button>
         </Form>                             
       </div>
     </>

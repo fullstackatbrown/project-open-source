@@ -1,6 +1,7 @@
 .text-label {
     /* background-color: #1C212D; */
-    color: #FF9988;
+    color: #B2BDC8;
+    font-size: 20px
 }
 
 .text-box {
@@ -11,25 +12,42 @@
 }
 
 #form-wrapper {
-    padding: 0% 50% 0% 30px;
+    padding: 0% 50% 0% 70px;
 }
 @media (max-width:800px){
     #form-wrapper {
-        padding: 0% 30px;
+        padding: 0% 70px;
     }
 }
-
+.header {
+    font-size: 70px;
+    color:#FF9988;
+}
+#signup-link{
+    color: #FF9988;
+}
 .button {
     color: #B2BDC8;
-    background-color: #1C212D; 
     border: #1C212D !important;
     margin-top: 20px;
     margin-bottom: 20px;
-    float:right;
+    float: right;
 }
 
-.button, #redirect {
+.button, #redirect, #img-wrapper{
     display: inline;
+}
+
+@media (max-width:800px){
+    .button, #redirect {
+        display: block;
+        float: none;
+    }
+}
+
+#login-img{
+    width: 30%; 
+    height: auto;
 }
 
 #redirect {

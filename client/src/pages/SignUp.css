@@ -1,8 +1,25 @@
 .button {
     color: #B2BDC8;
-    background-color: #1C212D; 
     border: #1C212D !important;
     margin-top: 20px;
     margin-bottom: 20px;
-    display: inline;
+    float: right;
+}
+
+.header {
+    color:#FF9988;
+}
+
+#login-link{
+    color: #FF9988;
+}
+
+.text-label {
+    /* background-color: #1C212D; */
+    color: #B2BDC8;
+    font-size: 20px
+}
+
+#redirect {
+    float: left;
 }

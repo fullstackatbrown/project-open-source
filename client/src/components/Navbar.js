@@ -32,30 +32,34 @@ function Navigation() {
     <Router>
       <Navbar
       // navbar-dark 
-        className="navbar-horizontal"
+        className="navbar-horizontal navbar-right"
+        
         style={{ 
-          backgroundColor: '#1C212D'
+          backgroundColor: '#1C212D',
         }}
         expand="lg"
       >
-        <Container>
+        <Container style={{ alignItems: 'right'}}>
           <NavbarBrand onClick={e => e.preventDefault()}>
               {/* add logo to home here */}
               {/* img alt="logo" src={logo} style={styles.img} */}
             <Link to="/home" style={styles.navLink}></Link>
           </NavbarBrand>
-          <Nav className="ml-lg-auto">
-            <NavLink><Link to="/about" style={{ color: '#ff9988' }}>About</Link></NavLink>
-            <NavLink><Link to="/members" style={{ color: '#ff9988' }}>Members</Link></NavLink>
-            <NavLink><Link to="/projects" style={{ color: '#ff9988' }}>Projects</Link></NavLink>
-            <NavLink><Link to="/events" style={{ color: '#ff9988' }}>Events</Link></NavLink>
-            <NavLink><Link to="/contact" style={{ color: '#ff9988' }}>Contact</Link></NavLink>
+          <Nav className="ml-auto" style={{ float: 'right' }}>
+            <NavLink><Link to="/about" style={{ color: '#ff9988', fontSize: '20px' }}>About</Link></NavLink>
+            <NavLink><Link to="/members" style={{ color: '#ff9988', fontSize: '20px' }}>Members</Link></NavLink>
+            <NavLink><Link to="/projects" style={{ color: '#ff9988', fontSize: '20px' }}>Projects</Link></NavLink>
+            <NavLink><Link to="/events" style={{ color: '#ff9988', fontSize: '20px' }}>Events</Link></NavLink>
+            <NavLink><Link to="/contact" style={{ color: '#ff9988', fontSize: '20px' }}>Contact</Link></NavLink>
           </Nav>
           <Link to="/login">
             <Button style={{ 
               backgroundColor: '#ff9988', 
               color: '#1C212D', 
-              borderColor:'#1C212D'
+              borderColor:'#1C212D',
+              fontSize: '20px',
+              // position: 'absolute',
+              float: 'right'
             }} 
               type="button" 
               className="ml-3"

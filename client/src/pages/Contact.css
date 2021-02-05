@@ -1,3 +1,21 @@
 #form-wrapper {
     padding: 0px 800px 0px 100px;
 }
+
+.text-label {
+    /* background-color: #1C212D; */
+    color: #B2BDC8;
+    font-size: 20px
+}
+
+.button {
+    color: #B2BDC8;
+    border: #1C212D !important;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    float: right;
+}
+
+#contact-input{
+    line-height: 400px;
+}

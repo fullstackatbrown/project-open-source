@@ -26,3 +26,12 @@
 
     /* padding: 0px 50px; */
 }
+
+.header {
+    font-size: 70px;
+    color:#FF9988;
+}
+
+.page-wrapper {
+    padding: 0px 70px;
+}
