@@ -1,6 +1,7 @@
 .dormant-tab {
     background-color: #1C212D;
     color: #B2BDC8;
+    font-size: 50px;
 }
 
 .active-tab {
@@ -8,6 +9,7 @@
     background-color: #1C212D;
     border-bottom: 1px solid;
     padding-bottom: 3px;
+    font-size: 50px;
 }
 
 .para-card {
@@ -19,7 +21,7 @@
 .para-text {
     color: #B2BDC8;
     background-color: #1C212D;
-    font-size: large;
+    font-size: 40px;
     border: #1C212D !important;
     border-radius: 0rem;
     width: 80%;
@@ -33,5 +35,5 @@
 }
 
 .page-wrapper {
-    padding: 0px 70px;
+    padding-top: 70px;
 }

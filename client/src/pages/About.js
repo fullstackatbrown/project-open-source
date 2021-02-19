@@ -87,12 +87,12 @@ class About extends React.Component {
           <CardBody className="para-card">
             <TabContent className="para-text" activeTab={"tabs" + this.state.tabs}>
               <TabPane tabId="tabs1">
-                <p className="description">
+                <p style = {{fontSize: 20}} className="description">
                   Open Source Software Development is the process by which software products
                   available with its source code under an open-source license to study,
                   change, and improve its design, is developed through an open source software project.
                 </p>
-                <p className="description">
+                <p style = {{fontSize: 20}} className="description">
                   Developers contribute to open source projects for a variety of reasons. 
                   Some want to fix a bug or add a missing feature to software that they regularly use, 
                   while others look to gain exposure to, and work with interesting technology. 
@@ -101,7 +101,7 @@ class About extends React.Component {
                   However, getting into open source can be difficult and confusing, 
                   especially without prior experience.
                 </p>
-                <p className="description">
+                <p style = {{fontSize: 20}} className="description">
                   The purpose of Open Source Developers at Brown shall be to help prepare 
                   interested students to begin jumping onto large open source software projects,
                   facilitate free and open discussion on contributing to a variety of open source projects, 
@@ -112,20 +112,20 @@ class About extends React.Component {
                 </p>
               </TabPane>
               <TabPane tabId="tabs2">
-                <p className="description">
+                <p style = {{fontSize: 20}} className="description">
                   Eligibility to Brown University Open Source Developers is open to all full-time 
                   undergraduate members of the Brown community and does not discriminate on the basis of 
                   race, color, religion, age, national or ethnic origin, disability, status as a veteran, 
                   sexual orientation, gender identity, gender expression, or sex.
                 </p>
-                <p className="description">
+                <p style = {{fontSize: 20}} className="description">
                   Majority Membership consists of full-time undergraduate students enrolled at 
                   Brown University, however, also welcomes graduate students, alumni, and 
                   faculty members in the wider Brown University community to participate.
                 </p>
               </TabPane>
               <TabPane tabId="tabs3">
-                <p className="description">
+                <p style = {{fontSize: 20}} className="description">
                   All funds collected by Brown University Open Source Developers from any 
                   source shall be deposited with the Student Activities Office (SAO), and 
                   all expenses of the group shall be spent through processes of the SAO. 

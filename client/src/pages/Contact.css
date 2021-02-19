@@ -1,6 +1,8 @@
 #form-wrapper {
+    margin-top: 100px;
     padding: 0px 800px 0px 100px;
 }
+
 
 .text-label {
     /* background-color: #1C212D; */
@@ -19,3 +21,8 @@
 #contact-input{
     line-height: 400px;
 }
+
+/* .page-wrapper {
+    margin-top: 70px;
+    padding: 0px 70px;
+} */

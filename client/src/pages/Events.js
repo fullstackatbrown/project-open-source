@@ -36,13 +36,13 @@ class Events extends React.Component {
               pills
               role="tablist"
             >
-              <NavItem>
+              <NavItem style={{fontSize: 40}}>
                 <NavLink
                   aria-selected={this.state.tabs === 1}
                   className={classnames("mb-sm-3 mb-md-0", {
                     active: this.state.tabs === 1
                   })}
-                  style={this.state.tabs === 1 ? activeStyle : dormantStyle}
+                  style={{fontSize: "40px !important"}, this.state.tabs === 1 ? activeStyle : dormantStyle}
                   onClick={e => this.toggleAbout(e, "tabs", 1)}
                   href="#pablo"
                   role="tab"
@@ -102,31 +102,31 @@ class Events extends React.Component {
             <CardBody className="para-card">
               <TabContent className="para-text" activeTab={"tabs" + this.state.tabs}>
                 <TabPane tabId="tabs1">
-                  <p className="description">
+                  <p style = {{fontSize: 20}} className="description">
                   This is a new event. Edit me in client/src/pages/Events.js
                   </p>
-                  <p className="description">
+                  <p style = {{fontSize: 20}} className="description">
                     Paragaph 2
                   </p>
-                  <p className="description">
+                  <p style = {{fontSize: 20}} className="description">
                     Paragraph 3
                   </p>
                 </TabPane>
                 <TabPane tabId="tabs2">
-                  <p className="description">
+                  <p style = {{fontSize: 20}} className="description">
                   This is a new event. Edit me in client/src/pages/Events.js
                   </p>
-                  <p className="description">
+                  <p style = {{fontSize: 20}} className="description">
                     Paragraph 2
                   </p>
                 </TabPane>
                 <TabPane tabId="tabs3">
-                  <p className="description">
+                  <p style = {{fontSize: 20}} className="description">
                   This is a new event. Edit me in client/src/pages/Events.js
                   </p>
                 </TabPane>
                 <TabPane tabId="tabs4">
-                  <p className="description">
+                  <p style = {{fontSize: 20}} className="description">
                   This is a new event. Edit me in client/src/pages/Events.js
                   </p>
                 </TabPane>

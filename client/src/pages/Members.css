@@ -1,0 +1,23 @@
+.page-wrapper {
+    padding-top: 70px;
+}
+
+.header {
+    font-size: 70px;
+    color:#FF9988;
+}
+
+#profile-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start
+}
+
+.profile {
+    display: inline-block;
+    width: 300px;
+    margin: 20px;
+    color: white;
+}
+
