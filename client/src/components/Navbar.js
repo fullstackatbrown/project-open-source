@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
 } from "react-router-dom";
 
 import {
@@ -25,6 +25,8 @@ import Contact from '../pages/Contact';
 import Projects from '../pages/Projects';
 import Login from '../pages/Login';
 import SignUp from '../pages/SignUp';
+import loginImg from './../images/blueno.PNG';
+
 
 function Navigation() {
   return (
@@ -41,10 +43,17 @@ function Navigation() {
       >
         <Container style={{ alignItems: 'right'}}>
           <NavbarBrand onClick={e => e.preventDefault()}>
-              {/* add logo to home here */}
-              {/* img alt="logo" src={logo} style={styles.img} */}
-            <Link to="/home" style={styles.navLink}></Link>
+            {/* <img src={loginImg}></img> */}
+            {/* <h1>OPS@B</h1> */}
+              {/* {loginImg} */}
+              {/* src={loginImg} style={styles.img} */}
+            <Link to="/home">
+            <img src={loginImg}></img>
+            </Link>
           </NavbarBrand>
+          {/* <Nav className="ml-auto" style={{ float: 'left' }}>
+            <NavLink><Link to="/home" style={{ color: '#ff9988', fontSize: '20px' }}>Home</Link></NavLink>
+          </Nav> */}
           <Nav className="ml-auto" style={{ float: 'right' }}>
             <NavLink><Link to="/about" style={{ color: '#ff9988', fontSize: '20px' }}>About</Link></NavLink>
             <NavLink><Link to="/members" style={{ color: '#ff9988', fontSize: '20px' }}>Members</Link></NavLink>
@@ -69,6 +78,9 @@ function Navigation() {
         </Container>
       </Navbar>
         <Switch>
+        <Route path="/home">
+            <Home />
+          </Route>
           <Route path="/about">
             <About />
           </Route>
@@ -100,11 +112,11 @@ const styles = {
     navLink: {
       color: '#1C212D',
       fontSize: 16
-  }
-    // img:{
-    //   height:'110px',
-    //   width:'auto'
-    // }
+  },
+    img: {
+      height:'110px',
+      width:'auto'
+    }
   }
 
 export default Navigation;
