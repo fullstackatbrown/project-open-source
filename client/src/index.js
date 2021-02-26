@@ -20,7 +20,11 @@ import {
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* <Router exact path="/">
+      <Redirect to="/home"/>
+    </Router> */}
     <App />
+
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -10,6 +10,7 @@ import {Link} from "react-router-dom";
 
 import Login from './Login';
 import "./SignUp.css"
+import loginImg from './../images/blueno.PNG';
 
 const SignUp = (props) => {
   return (
@@ -49,6 +50,11 @@ const SignUp = (props) => {
                 fontSize: '20px'
               }} className="button">Submit</Button>
           </Form>                             
+        </div>
+        <div id="img-wrapper">
+            <img style = {{width: 500}} className = "cover" id="login-img" src={loginImg}>
+              
+            </img>
         </div>
       </div>
     </>

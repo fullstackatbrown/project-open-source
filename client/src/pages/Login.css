@@ -29,6 +29,7 @@
         width: 50%;
         display: inline-block;
         text-align: center;
+        position: absolute;
     }
 }
 @media (max-width:1150px){
@@ -41,6 +42,7 @@
         margin-top: 100px;
         padding: 70px;
         text-align: center;
+        position: static;
     }
 }
 .header {
