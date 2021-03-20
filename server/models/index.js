@@ -5,7 +5,7 @@ var basename = path.basename(__filename);
 var db = {};
 
 var sequelize = new Sequelize(process.env.DB_URL, {
-    dialect: 'mariadb',
+    dialect: 'mysql',
     dialectOptions: {
         timezone: process.env.db_timezone
     }

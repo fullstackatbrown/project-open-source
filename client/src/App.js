@@ -27,7 +27,7 @@ class App extends Component{
         minHeight: '100vh',
         backgroundColor: '#1C212D' 
         }}>
-        <Router exact path="/">
+        {/* <Router exact path="/">
           <Route
             exact
               path="/"
@@ -39,7 +39,7 @@ class App extends Component{
                 )
             }}
           />
-        </Router>
+        </Router> */}
         <Navigation/>
       </div>
     ) 

@@ -47,7 +47,7 @@ function Navigation() {
             {/* <h1>OPS@B</h1> */}
               {/* {loginImg} */}
               {/* src={loginImg} style={styles.img} */}
-            <Link to="/home">
+            <Link to="/">
             <img src={loginImg}></img>
             </Link>
           </NavbarBrand>
@@ -78,9 +78,6 @@ function Navigation() {
         </Container>
       </Navbar>
         <Switch>
-        <Route path="/home">
-            <Home />
-          </Route>
           <Route path="/about">
             <About />
           </Route>
@@ -101,6 +98,9 @@ function Navigation() {
           </Route>
           <Route path="/signup">
             <SignUp />
+          </Route>
+          <Route exact path="/">
+            <Home />
           </Route>
         </Switch>
       </Router>
