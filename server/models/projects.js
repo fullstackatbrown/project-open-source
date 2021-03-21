@@ -28,9 +28,9 @@ module.exports = (sequelize, DataTypes) => {
       }
     });
   
-    Group.associate = function(models) {
-      Group.hasMany(models.Members, {foreignKey: 'id'});
-    };
+    // Projects.associate = function(models) {
+    //   Projects.hasMany(models.Members, {foreignKey: 'id'});
+    // };
   
     return Projects;
   };
