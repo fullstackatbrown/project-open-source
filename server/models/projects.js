@@ -14,8 +14,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING, 
         allowNull: false
       }, 
+      // need to fix!!! members type to be array of ints
       members: {
-        type: DataTypes.ARRAY(DataTypes.INTEGER),
+        type: DataTypes.INTEGER,
         allowNull: false
       }, 
       project_link: {
