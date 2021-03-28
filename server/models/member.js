@@ -26,6 +26,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING, 
             allowNull: false
         }
+
+        //one member has one project
+        
         // projects: {
         //     type: DataTypes.ARRAY(DataTypes.INTEGER), 
         //     allowNull: false

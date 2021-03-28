@@ -38,14 +38,17 @@ exports.findAll = (req, res) => {
 exports.login = (req, res) => {
   const checkEmail = req.params.email;
   const checkPassword = req.params.password;
-  db.Member.login({
+  db.Member.find(
+    {
+    //find member based on email, retrieve password based on email, check if equal
+    //data is that user w/ email
       where: { 
-          email: checkEmail, 
-          password: checkPassword 
+          email: checkEmail
+          // password: checkPassword 
         } 
     })
     .then(data => {
-      res.send(data);
+      res.send(True);
     })
     .catch(err => {
       res.status(500).send({
