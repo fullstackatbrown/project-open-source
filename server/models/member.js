@@ -16,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
         },
         email: {
             type: DataTypes.STRING, 
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         password: {
             type: DataTypes.STRING, 
@@ -24,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         image_path: {
             type: DataTypes.STRING, 
-            allowNull: false
+            allowNull: true
         }
 
         //one member has one project

@@ -26,9 +26,7 @@ class Events extends React.Component {
     return (
       <>
       <div className = "page-wrapper">
-        <div>
-              <h1 className="header">Events</h1>
-        </div>
+          <h1 className="header">Events</h1>
           <div className="nav-wrapper">
             <Nav
               className="nav-fill flex-column flex-md-row"

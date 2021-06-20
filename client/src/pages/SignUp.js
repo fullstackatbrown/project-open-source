@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, 
         Form, 
         FormGroup, 
@@ -8,11 +8,41 @@ import { Button,
         NavLink} from 'reactstrap';
 import {Link} from "react-router-dom";
 
+import { useSelector, useDispatch } from 'react-redux'
+import { authenticate, logout } from '../features/counter/counterSlice'
+
 import Login from './Login';
 import "./SignUp.css"
 import loginImg from './../images/blueno.PNG';
+import axios from 'axios';
 
-const SignUp = (props) => {
+function SignUp() {
+  const [name, setName] = useState('');
+  const [year, setYear] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
+  const count = useSelector((state) => state.counter.value)
+
+  function submitForm(e) {
+    e.preventDefault();
+        axios({
+          method: "POST", 
+          url:'http://localhost:5000/member/create', 
+          data: {name, year, email, password}
+        }).then(res=>{
+          console.log(res.data)
+            // alert("success")
+          if (res.data == true) {
+            dispatch(authenticate(res.data))
+            alert("success")
+          } else {
+            alert("fail")
+          }
+        }).catch(error=>{
+          alert("fail")
+        });
+  }
   return (
     <>
     <div className = "page-wrapper">
@@ -20,22 +50,26 @@ const SignUp = (props) => {
           <div>
             <h1 className="header">Sign Up</h1>
           </div>
-          <Form>
+          <Form onSubmit={(e) => submitForm(e)}>
             <FormGroup>
               <Label className = "text-label" for="exampleName">Full Name</Label>
-              <Input type="name" name="name" id="exampleName" placeholder="Full Name"/>
+              <Input type="name" name="name" id="exampleName" placeholder="Full Name" onChange={(e) => {setName(e.target.value);}}/>
             </FormGroup>
             <FormGroup>
               <Label className = "text-label" for="exampleEmail">Email</Label>
-              <Input type="email" name="email" id="exampleEmail" placeholder="@brown.edu" />
+              <Input type="email" name="email" id="exampleEmail" placeholder="@brown.edu" onChange={(e) => {setEmail(e.target.value);}}/>
             </FormGroup>
             <FormGroup>
               <Label className = "text-label" for="examplePassword">Password</Label>
-              <Input type="password" name="password" id="examplePassword" placeholder="Enter Password" />
+              <Input type="password" name="password" id="examplePassword" placeholder="Enter Password" onChange={(e) => {setPassword(e.target.value);}}/>
             </FormGroup>
             <FormGroup>
               <Label className = "text-label" for="exampleConfirmPassword">Confirm Password</Label>
               <Input type="confirmPassword" name="confirmPassword" id="exampleConfirmPassword" placeholder="Confirm Password" />
+            </FormGroup>
+            <FormGroup>
+              <Label className = "text-label" for="exampleYear">Class Year</Label>
+              <Input type="year" name="year" id="exampleYear" placeholder="Enter Year" onChange={(e) => {setYear(e.target.value);}}/>
             </FormGroup>
           
             <FormGroup className = "text-label" id = "redirect">

@@ -1,35 +1,28 @@
-//Express-HBS config
-require('dotenv').config()
+// Express-HBS config.
+require('dotenv').config();
 var express = require('express');
-var exphbs = require('express-handlebars');
 var app = express();
-var path = require('path');
-var hbs = exphbs.create({partialsDir: 'views/partials/'});
 var bodyParser = require('body-parser');
+var cors = require('cors');
+app.use(bodyParser.json());
+app.use(cors());
 
-// import sequelize models
+// Import sequelize models.
 var db = require('./models');
 
 var routes = require('./routes/index');
-var myroute = require('./routes/myroute');
+var memberRoute = require('./routes/member');
+var projectsRoute = require('./routes/projects');
 
-app.engine('hbs', exphbs({
-    extname: '.hbs',
-    defaultLayout: 'main',  // nests all renders in main.hbs by default
-}));
-app.set('view engine', 'hbs');
-app.set('views', __dirname + '/views/')
-app.use(express.static(path.join(__dirname, '/')));
-app.use(bodyParser.json());
-
+// Set routes.
 app.use('/', routes);
-app.use('/myroute', myroute);
+app.use('/member', memberRoute);
+app.use('/projects', projectsRoute);
 
-// sync sequelize, use force = true to delete table if exists
-db.sequelize.sync({force: true});
+// Sync sequelize, use force = true to delete table if exists.
+db.sequelize.sync({force: false});
 
-app.listen(8080, function () {
-    console.log('Server listening on port 8080');
+// Listen!
+app.listen(process.env.PORT, function () {
+  console.log(`Server listening on port ${process.env.PORT}`);
 });
-
-module.exports = app;

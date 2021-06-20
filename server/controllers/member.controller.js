@@ -2,17 +2,17 @@ const db = require('../models');
 
 // create project
 exports.create = (req, res) => {
-  const group = {
+  const member = {
     name: req.body.name, 
-    class_year: req.body.class_year,
+    class_year: req.body.year,
     email: req.body.email,
     password: req.body.password,
-    image_path: req.body.image_path
+    image_path: "test.png"
   };
 
   db.Member.create(member)
     .then(data => {
-      res.send(data);
+        res.send(data._options.isNewRecord)
     })
     .catch(err => {
       res.status(500).send({
@@ -36,19 +36,24 @@ exports.findAll = (req, res) => {
 
 // login member by id
 exports.login = (req, res) => {
-  const checkEmail = req.params.email;
-  const checkPassword = req.params.password;
-  db.Member.find(
+  const checkEmail = req.body.email;
+  const checkPassword = req.body.password;
+  db.Member.findAll(
     {
     //find member based on email, retrieve password based on email, check if equal
     //data is that user w/ email
       where: { 
-          email: checkEmail
-          // password: checkPassword 
+          email: checkEmail,
+          password: checkPassword 
         } 
     })
     .then(data => {
-      res.send(True);
+      console.log(data)
+      if (data.length > 0) {
+        res.send(true);
+      } else {
+        res.send(false);
+      }
     })
     .catch(err => {
       res.status(500).send({

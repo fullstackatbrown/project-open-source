@@ -4,12 +4,12 @@ var path = require('path');
 var basename = path.basename(__filename);
 var db = {};
 
+console.log("hi")
+console.log(process.env.PORT)
 var sequelize = new Sequelize(process.env.DB_URL, {
-    dialect: 'mysql',
-    dialectOptions: {
-        timezone: process.env.db_timezone
-    }
+    dialect: 'mysql'
 });
+// var sequelize = new Sequelize(process.env.DB_URL);
 
 fs
     .readdirSync(__dirname)
