@@ -1,0 +1,28 @@
+.page-wrapper {
+    padding-top: 70px;
+}
+
+.header {
+    font-size: 70px;
+    color:#FF9988;
+}
+
+#project-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start
+}
+
+.project {
+    display: inline-block;
+    width: 350px;
+    margin: 20px;
+    color: white;
+}
+
+.collaborators {
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+}

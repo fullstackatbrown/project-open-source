@@ -1,59 +1,29 @@
-import React from 'react'; 
+import React , { useState, useEffect } from 'react'; 
 
 import Profile from '../components/Profile.js'
-import loginImg from './../images/blueno.PNG';
 import './Members.css'
+import axios from 'axios';
 
+function Members() {
+  const [members, setMembers] = useState([]);
 
-const Members = () => {
+  useEffect(() => {
+    axios({
+      method: "GET", 
+      url:'http://localhost:5000/member/findAll'
+    }).then(res=>{
+      setMembers(res.data)
+    }).catch(error=>{
+      alert("fail")
+    });
+  }, []);
+  
   return (
     <div className = "page-wrapper"> 
-  
+
           <h1 className="header">Members</h1>
           <div id="profile-wrapper">
-          <div className="profile">
-            <Profile
-              info={{name: "FSAB", image: {loginImg}, year: "2023", 
-              email: "@brown.edu", description: "fact"}}
-            />
-          </div>
-          <div className="profile">
-          <Profile
-            info={{name: "Nitya", image: {loginImg}, year: "2023", 
-            email: "email@brown.edu", description: "cool"}}
-          />
-          </div>
-          <div className="profile">
-          <Profile
-            info={{name: "Ian", image: {loginImg}, year: "2023", 
-            email: "email@brown.edu", description: "cool"}}
-          />
-          </div>
-          <div className="profile">
-          <Profile
-            info={{name: "Alyssa", image: {loginImg}, year: "2023", 
-            email: "email@brown.edu", description: "cool"}}
-          />
-          </div>
-          <div className="profile">
-          <Profile
-            info={{name: "Jenny", image: {loginImg}, year: "2023", 
-            email: "email@brown.edu", description: "cool"}}
-          />
-          </div>
-          <div className="profile">
-          <Profile
-            info={{name: "Blueno", image: {loginImg}, year: "2023", 
-            email: "email@brown.edu", description: "cool"}}
-          />
-          </div>
-          <div className="profile">
-          <Profile
-            info={{name: "Bruno", image: {loginImg}, year: "2023", 
-            email: "email@brown.edu", description: "cool"}}
-          />
-          </div>
-
+          {members.map(data => Profile(data))}
       </div>
     </div>
   );

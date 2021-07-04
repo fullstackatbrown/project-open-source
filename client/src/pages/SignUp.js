@@ -21,6 +21,7 @@ function SignUp() {
   const [year, setYear] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [bio, setBio] = useState('');
   const dispatch = useDispatch();
   const count = useSelector((state) => state.counter.value)
 
@@ -29,7 +30,7 @@ function SignUp() {
         axios({
           method: "POST", 
           url:'http://localhost:5000/member/create', 
-          data: {name, year, email, password}
+          data: {name, year, email, password, bio}
         }).then(res=>{
           console.log(res.data)
             // alert("success")
@@ -71,7 +72,10 @@ function SignUp() {
               <Label className = "text-label" for="exampleYear">Class Year</Label>
               <Input type="year" name="year" id="exampleYear" placeholder="Enter Year" onChange={(e) => {setYear(e.target.value);}}/>
             </FormGroup>
-          
+            <FormGroup>
+              <Label className = "text-label" for="exampleBio">Short Biography</Label>
+              <Input type="bio" name="bio" id="exampleBio" placeholder="Enter a short biography" onChange={(e) => {setBio(e.target.value);}}/>
+            </FormGroup>
             <FormGroup className = "text-label" id = "redirect">
             Have an account? 
             <Link id = "login-link" to="/login"> Log in</Link>
