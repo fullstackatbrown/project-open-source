@@ -16,6 +16,8 @@ import {
   Button
 } from 'reactstrap';
 
+import { useSelector, useDispatch } from 'react-redux'
+import { authenticate, logout } from '../features/counter/counterSlice'
 
 import Home from '../pages/Home';
 import About from '../pages/About';
@@ -25,10 +27,21 @@ import Contact from '../pages/Contact';
 import Projects from '../pages/Projects';
 import Login from '../pages/Login';
 import SignUp from '../pages/SignUp';
+import Manage from '../pages/Manage'
+import ManageProjects from '../pages/ManageProjects'
 import loginImg from './../images/blueno.PNG';
 
 
 function Navigation() {
+  const count = useSelector((state) => state.counter.authenticated)
+  const isAdmin = useSelector((state) => state.counter.isAdmin)
+  const dispatch = useDispatch();
+  const logoutClick = () => {
+    if (count) {
+      dispatch(logout())
+    }
+  }
+
   return (
     <React.Fragment>
     <Router>
@@ -60,9 +73,10 @@ function Navigation() {
             <NavLink><Link to="/projects" style={{ color: '#ff9988', fontSize: '20px' }}>Projects</Link></NavLink>
             <NavLink><Link to="/events" style={{ color: '#ff9988', fontSize: '20px' }}>Events</Link></NavLink>
             <NavLink><Link to="/contact" style={{ color: '#ff9988', fontSize: '20px' }}>Contact</Link></NavLink>
+            {isAdmin && (<NavLink><Link to="/manage" style={{ color: '#ff9988', fontSize: '20px' }}>Manage</Link></NavLink>)}
           </Nav>
           <Link to="/login">
-            <Button style={{ 
+            <Button onClick={logoutClick} style={{ 
               backgroundColor: '#ff9988', 
               color: '#1C212D', 
               borderColor:'#1C212D',
@@ -73,7 +87,7 @@ function Navigation() {
               type="button" 
               className="ml-3"
               >
-                Login</Button>
+                {count && ("Logout")}{!count && ("Login")}</Button>
           </Link>
         </Container>
       </Navbar>
@@ -99,6 +113,12 @@ function Navigation() {
           <Route path="/signup">
             <SignUp />
           </Route>
+          {isAdmin && (<Route path="/manage">
+            <Manage />
+          </Route>)}
+          {isAdmin && (<Route path="/manageProjects">
+            <ManageProjects />
+          </Route>)}
           <Route exact path="/">
             <Home />
           </Route>

@@ -12,11 +12,12 @@ import {
   Switch,
   Route,
   Link,
-  Redirect
+  Redirect,
+  useHistory
 } from "react-router-dom";
 
 import { useSelector, useDispatch } from 'react-redux'
-import { authenticate, logout } from '../features/counter/counterSlice'
+import { authenticate, logout, admin } from '../features/counter/counterSlice'
 
 import './Login.css';
 import SignUp from './SignUp';
@@ -29,10 +30,15 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  const count = useSelector((state) => state.counter.value)
+  const count = useSelector((state) => state.counter.authenticated)
+  const history = useHistory();
+
+  console.log(count)
+  if (count) {
+    history.push("/");
+  }
 
   function submitForm(e) {
-    // console.log(this.state)
     e.preventDefault();
         axios({
           method: "POST", 
@@ -44,9 +50,21 @@ function Login() {
           if (res.data == true) {
             dispatch(authenticate(res.data))
             alert("success")
+            history.push("/");
           } else {
             alert("fail")
           }
+        }).catch(error=>{
+          alert("fail")
+        });
+
+        axios({
+          method: "POST", 
+          url:'http://localhost:5000/member/isAdmin', 
+          data: {email, password}
+        }).then(res=>{
+          console.log(res)
+          dispatch(admin(res.data))
         }).catch(error=>{
           alert("fail")
         });

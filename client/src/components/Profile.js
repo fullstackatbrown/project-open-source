@@ -14,6 +14,7 @@ function Profile(props) {
   // if (props.admin) {
 
   // }
+  
     return(
         <div className="profile">
         <Card body inverse color={props.admin == 1 ? 'indigo' : 'gray-dark'}>

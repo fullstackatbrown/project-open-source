@@ -23,18 +23,29 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING, 
             allowNull: false
         },
+        bio: {
+            type: DataTypes.STRING, 
+            allowNull: false,
+            validate: {
+                len: [0,60]
+            }
+        },
         image_path: {
             type: DataTypes.STRING, 
             allowNull: true
-        }
-
-        //one member has one project
-        
-        // projects: {
-        //     type: DataTypes.ARRAY(DataTypes.INTEGER), 
-        //     allowNull: false
-        // }
-
+        },
+        project_id: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            references: {
+                model: 'Projects',
+                key: 'id',
+             }
+        }, 
+        admin: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        }, 
     });
 
     return Member;

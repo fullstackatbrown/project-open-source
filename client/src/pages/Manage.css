@@ -1,0 +1,24 @@
+.collaborators-list {
+    justify-content: space-evenly;
+    align-items: stretch;
+    width: 100%;
+    margin-right: 10px;
+}
+
+#collab-wrapper {
+    display: flex;
+}
+
+.collab-btn{
+    margin-top: 10px;
+}
+
+.manage-dividers{
+    padding: 25px;
+    background-color: #32325d;
+    /* pointer-events: none; */
+}
+
+#manage-wrapper{
+    width: 60%;
+}

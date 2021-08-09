@@ -6,9 +6,9 @@ import { Button,
         Input, 
         FormText,
         NavLink} from 'reactstrap';
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch, configureStore } from 'react-redux'
 import { authenticate, logout } from '../features/counter/counterSlice'
 
 import Login from './Login';
@@ -23,7 +23,9 @@ function SignUp() {
   const [password, setPassword] = useState('');
   const [bio, setBio] = useState('');
   const dispatch = useDispatch();
-  const count = useSelector((state) => state.counter.value)
+  const count = useSelector((state) => state.counter.authenticated)
+  const history = useHistory();
+  // const store = configureStore({ reducer: slice })
 
   function submitForm(e) {
     e.preventDefault();
@@ -35,8 +37,10 @@ function SignUp() {
           console.log(res.data)
             // alert("success")
           if (res.data == true) {
-            dispatch(authenticate(res.data))
+            // dispatch(authenticate(res.data))
             alert("success")
+            history.push("/login");
+            // console.log(count)
           } else {
             alert("fail")
           }

@@ -17,8 +17,19 @@ function Projects() {
     }).catch(error=>{
       alert("fail")
     });
+
+    axios({
+      method: "GET", 
+      url:'http://localhost:5000/member/findAll'
+    }).then(res=>{
+      setMembers(res.data)
+    }).catch(error=>{
+      alert("fail")
+    });
   }, []);
 
+
+  
   return (
     <div className = "page-wrapper"> 
 
