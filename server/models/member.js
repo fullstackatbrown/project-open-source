@@ -21,18 +21,21 @@ module.exports = (sequelize, DataTypes) => {
         },
         password: {
             type: DataTypes.STRING, 
-            allowNull: false
+            allowNull: false,
+            defaultValue: 'password'
         },
         bio: {
             type: DataTypes.STRING, 
             allowNull: false,
+            defaultValue: '',
             validate: {
                 len: [0,60]
             }
         },
         image_path: {
             type: DataTypes.STRING, 
-            allowNull: true
+            allowNull: true,
+            defaultValue: "https://smhlancers.org/wp-content/uploads/2016/06/profile-placeholder-300x300.png"
         },
         project_id: {
             type: DataTypes.INTEGER,
