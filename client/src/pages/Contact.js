@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import axios from 'axios';
 import { Button, 
         Form, 
@@ -15,47 +15,28 @@ import {
   Link
 } from "react-router-dom";
 
-class Contact extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      email: '',
-      message: ''
-    }
-  }
+function Contact() {
+  const [email, setEmail] = useState('');
+  const [msg, setMsg] = useState('');
 
-
-  onEmailChange(event) {
-    this.setState({email: event.target.value})
-  }
-
-  onMessageChange(event) {
-    this.setState({message: event.target.value})
-  }
-
-  resetForm(){
-    this.setState({email: '', message: ''})
-  }
-
-  handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
-
+    var data = {
+      email: email,
+      subject: 'test',
+      message: msg
+    }
     axios({
       method: "POST", 
-      url:"http://localhost:3000/send", 
-      data:  this.state
+      url:'http://localhost:5000/mail', 
+      data:  data
     }).then((response)=>{
-      if (response.data.status === 'success') {
         alert("Message Sent."); 
-        this.resetForm()
-      } else if(response.data.status === 'fail') {
+    }).catch(error=>{
         alert("Message failed to send.")
-      }
     })
-
   }
   
-  render() {
     return (
       <>
         <div className = "page-wrapper">
@@ -63,16 +44,16 @@ class Contact extends Component {
             <div>
               <h1 className="header">Contact Us</h1>
             </div>
-            <Form onSubmit={this.handleSubmit.bind(this)}>
+            <Form onSubmit={(e) => handleSubmit(e)}>
               <FormGroup>
                 <Label className = "text-label" for="exampleEmail">Your Email</Label>
-                <Input type="email" name="email" id="exampleEmail" placeholder="@brown.edu" value={this.state.email} onChange={this.onEmailChange.bind(this)}/>
+                <Input type="email" name="email" id="exampleEmail" placeholder="@brown.edu" value={email} onChange={(e) => {setEmail(e.target.value);}}/>
               </FormGroup>
               <FormGroup>
                 <Label className = "text-label" for="exampleText">Message</Label>
-                <Input type="textarea" name="text" rows={10} id="contact-input" placeholder="Write Your Message Here!" value={this.state.message} onChange={this.onMessageChange.bind(this)}/>
+                <Input type="textarea" name="text" rows={10} id="contact-input" placeholder="Write Your Message Here!" value={msg} onChange={(e) => {setMsg(e.target.value);}}/>
               </FormGroup>
-              <Button style={{ 
+              <Button type="submit" style={{ 
                     backgroundColor: '#ff9988', 
                     color: '#1C212D', 
                     borderColor:'#1C212D',
@@ -84,8 +65,6 @@ class Contact extends Component {
         </div>
       </>
     );
-  }
-
-}
+                }
 
 export default Contact;
