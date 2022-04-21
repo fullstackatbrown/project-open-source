@@ -4,8 +4,9 @@ var path = require('path');
 var basename = path.basename(__filename);
 var db = {};
 
-console.log("hi")
-console.log(process.env.PORT)
+// console.log("hi")
+// console.log(process.env.PORT)
+// console.log(process.env)
 var sequelize = new Sequelize(process.env.DB_URL, {
     dialect: 'mysql'
 });
